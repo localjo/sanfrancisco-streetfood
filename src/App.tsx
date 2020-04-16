@@ -43,7 +43,7 @@ function App() {
         tab === 'map' ? (
           <Map trucks={trucks} />
         ) : (
-          <Table />
+          <Table trucks={trucks} />
         )
       ) : (
         'No data'
