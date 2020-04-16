@@ -27,7 +27,7 @@ function Table({ trucks }: { trucks: ITruck[] }) {
               vehicleType,
             }) => {
               return (
-                <tr>
+                <tr key={id}>
                   <td>{id}</td>
                   <td>{name}</td>
                   <td>
