@@ -9,7 +9,7 @@ function App() {
   const [trucks, setTrucks] = useState<ITruck[]>([]);
   const [status, setStatus] = useState<NetworkStatus>(NetworkStatus.EMPTY);
   const isLoading = status === NetworkStatus.LOADING;
-  const isComplete = status === NetworkStatus.COMPLETE;
+  const isComplete = status === NetworkStatus.COMPLETE && trucks.length > 0;
   const isError = status === NetworkStatus.ERROR;
 
   useEffect(() => {
