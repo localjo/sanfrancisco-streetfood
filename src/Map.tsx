@@ -81,13 +81,15 @@ function Map({ trucks }: { trucks: ITruck[] }) {
     width: size.width || window.innerWidth,
     height: size.width || window.innerHeight,
   });
+  const isTall = size.height > size.width;
+  const padding = {
+    top: isTall ? 0 : (size.height + 1) / 20,
+    right: 0,
+    bottom: isTall ? 0 : (size.height + 1) / 2.5,
+    left: 0,
+  };
   const { longitude, latitude, zoom } = mercator.fitBounds(bounds, {
-    padding: {
-      top: 100,
-      right: 0,
-      bottom: 300,
-      left: 0,
-    },
+    padding,
   });
 
   const [viewport, setViewport] = useState<IViewportSettings>({
@@ -109,11 +111,14 @@ function Map({ trucks }: { trucks: ITruck[] }) {
   const [activeId, setActiveId] = useState<number | null>(null);
   const activeTruck = activeId !== null ? markers[activeId] : null;
   return (
-    <div ref={mapRef}>
+    <div
+      ref={mapRef}
+      style={{ maxWidth: '1200px', width: '100vw', height: '80vh' }}
+    >
       <MapGL
         {...viewport}
-        width="100vw"
-        height="80vh"
+        width="100%"
+        height="100%"
         mapStyle="mapbox://styles/mapbox/dark-v9"
         onViewportChange={(nextViewport) => {
           setViewport(nextViewport);
