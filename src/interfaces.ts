@@ -16,6 +16,7 @@ export interface ITruck {
 }
 
 export interface ITruckResponse {
+  status: string;
   objectid: string;
   applicant: string;
   facilitytype: string;
@@ -23,3 +24,14 @@ export interface ITruckResponse {
   fooditems: string;
   location: { coordinates: [number, number] };
 }
+
+export interface IViewportSettings {
+  latitude?: number;
+  longitude?: number;
+  zoom?: number;
+  bearing?: number;
+  pitch?: number;
+}
+
+export type ICoords = [number, number];
+export type ICoordsArray = ICoords[];

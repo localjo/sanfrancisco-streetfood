@@ -11,7 +11,7 @@ async function api<T>(url: string): Promise<T> {
 export const getTrucks = async function (): Promise<ITruck[]> {
   const resp = await api<[]>('https://data.sfgov.org/resource/rqzj-sfat.json');
   return resp
-    .filter(({ status = '' }: { status: string }) => {
+    .filter(({ status = '' }: ITruckResponse) => {
       return status.toUpperCase() === 'APPROVED';
     })
     .map(
