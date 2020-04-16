@@ -30,7 +30,9 @@ export const getTrucks = async function (): Promise<ITruck[]> {
           latitude,
           longitude,
           address: locationdescription,
-          foodTypes: fooditems.split(':'),
+          foodTypes: Array.from(
+            new Set(fooditems.split(':').map((t) => t.toLowerCase()))
+          ),
           vehicleType: facilitytype,
         };
       }
