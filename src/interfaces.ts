@@ -11,7 +11,7 @@ export interface ITruck {
   latitude: number;
   longitude: number;
   address: string;
-  food: string;
+  foodTypes: string[];
   vehicleType: string;
 }
 

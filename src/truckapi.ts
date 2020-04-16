@@ -19,7 +19,7 @@ export const getTrucks = async function (): Promise<ITruck[]> {
         objectid = '',
         applicant = 'Name unknown',
         locationdescription = 'Address unknown',
-        fooditems = 'Food type unknown',
+        fooditems = '',
         facilitytype = 'Unknown',
         location = { coordinates: [0, 0] },
       }: ITruckResponse) => {
@@ -30,7 +30,7 @@ export const getTrucks = async function (): Promise<ITruck[]> {
           latitude,
           longitude,
           address: locationdescription,
-          food: fooditems,
+          foodTypes: fooditems.split(':'),
           vehicleType: facilitytype,
         };
       }
