@@ -1,5 +1,6 @@
 {
   "name": "sanfrancisco-streetfood",
+  "homepage": "https://localjo.github.io/sanfrancisco-streetfood",
   "description": "Map of street food in San Francisco",
   "version": "0.1.0",
   "private": true,
