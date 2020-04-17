@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import 'mapbox-gl/dist/mapbox-gl.css';
 import MapGL, {
   Marker,
   Popup,
