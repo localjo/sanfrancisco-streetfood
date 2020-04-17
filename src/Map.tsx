@@ -5,39 +5,35 @@ import MapGL, {
   NavigationControl,
   WebMercatorViewport,
 } from 'react-map-gl';
+import styled from 'styled-components';
 import { ITruck, ICoordsArray, IViewportSettings } from './interfaces';
+import { ReactComponent as PinIcon } from './icons/pin.svg';
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_PUBLIC_TOKEN as string;
 
-const ICON = `M20.2,15.7L20.2,15.7c1.1-1.6,1.8-3.6,1.8-5.7c0-5.6-4.5-10-10-10S2,4.5,2,10c0,2,0.6,3.9,1.6,5.4c0,0.1,0.1,0.2,0.2,0.3
-  c0,0,0.1,0.1,0.1,0.2c0.2,0.3,0.4,0.6,0.7,0.9c2.6,3.1,7.4,7.6,7.4,7.6s4.8-4.5,7.4-7.5c0.2-0.3,0.5-0.6,0.7-0.9
-  C20.1,15.8,20.2,15.8,20.2,15.7z`;
-
-const pinStyle = {
-  fill: '#00d',
-  stroke: 'none',
-};
-
-interface IPinProps {
-  size: number;
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
-}
-
-function Pin({ size = 20, onMouseEnter, onMouseLeave }: IPinProps) {
-  return (
-    <svg
-      onMouseEnter={() => onMouseEnter()}
-      onMouseLeave={() => onMouseLeave()}
-      height={size}
-      viewBox="0 0 24 24"
-      style={pinStyle}
-    >
-      <path d={ICON} />
-    </svg>
-  );
-}
-
+const Wrapper = styled.div`
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100vw;
+  height: 100vh;
+  color: black;
+`;
+const ControlHolder = styled.div`
+  position: absolute;
+  top: 85px;
+  right: 0;
+  padding: 10px;
+`;
+const PopupBody = styled.div`
+  max-width: 250px;
+`;
+const FoodTag = styled.span`
+  background: rgba(0, 0, 0, 0.3);
+  padding: 3px;
+  margin: 2px;
+  display: inline-block;
+  border-radius: 3px;
+`;
 const useContainerSize = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ width: 0, height: 0 });
@@ -111,10 +107,7 @@ function Map({ trucks }: { trucks: ITruck[] }) {
   const [activeId, setActiveId] = useState<number | null>(null);
   const activeTruck = activeId !== null ? markers[activeId] : null;
   return (
-    <div
-      ref={mapRef}
-      style={{ maxWidth: '1200px', width: '100vw', height: '80vh' }}
-    >
+    <Wrapper ref={mapRef}>
       <MapGL
         {...viewport}
         width="100%"
@@ -126,52 +119,59 @@ function Map({ trucks }: { trucks: ITruck[] }) {
         mapboxApiAccessToken={MAPBOX_TOKEN}
       >
         {markers.map(({ id, longitude, latitude }, index) => {
+          const isActive = index === activeId;
+          const fillColor = isActive ? 'white' : '#0A84FF';
+          const iconSize = isActive ? 35 : 30;
           return (
             <Marker
               key={id}
               longitude={longitude}
               latitude={latitude}
-              offsetTop={-20}
-              offsetLeft={-10}
+              offsetTop={-35}
+              offsetLeft={-12.5}
             >
-              <Pin
-                size={20}
+              <PinIcon
+                height={iconSize}
+                fill={fillColor}
+                stroke="#000"
+                stoke-width="4"
                 onMouseEnter={() => setActiveId(index)}
                 onMouseLeave={() => setActiveId(null)}
               />
             </Marker>
           );
         })}
-        <div
-          className="nav"
-          style={{
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            padding: '10px',
-          }}
-        >
+        <ControlHolder className="nav">
           <NavigationControl
             onViewportChange={(viewport) => setViewport(viewport)}
           />
-        </div>
+        </ControlHolder>
 
         {activeTruck && (
           <Popup
-            tipSize={5}
+            tipSize={10}
             anchor="top"
             longitude={activeTruck.longitude}
             latitude={activeTruck.latitude}
             closeOnClick={false}
             onClose={() => setActiveId(null)}
           >
-            {activeTruck.name}
-            <br />
-            {activeTruck.address}
+            <PopupBody>
+              <p>
+                <b>{activeTruck.name}</b>
+              </p>
+              <p>{activeTruck.vehicleType}</p>
+              <p>{activeTruck.address}</p>
+              <p>
+                {activeTruck.foodTypes.map((foodType, i) => (
+                  <FoodTag key={foodType}>{foodType}</FoodTag>
+                ))}
+              </p>
+            </PopupBody>
           </Popup>
         )}
       </MapGL>
-    </div>
+    </Wrapper>
   );
 }
 
