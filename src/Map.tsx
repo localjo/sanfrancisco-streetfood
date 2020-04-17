@@ -113,7 +113,7 @@ function Map({ trucks }: { trucks: ITruck[] }) {
       >
         {markers.map(({ id, longitude, latitude }, index) => {
           const isActive = index === activeId;
-          const fillColor = isActive ? '#bd3f16' : '#900511';
+          const fillColor = isActive ? '#900511' : '#bd3f16';
           const iconSize = isActive ? 35 : 30;
           return (
             <Marker
@@ -126,8 +126,6 @@ function Map({ trucks }: { trucks: ITruck[] }) {
               <PinIcon
                 height={iconSize}
                 fill={fillColor}
-                stroke="#000"
-                stoke-width="4"
                 onMouseEnter={() => setActiveId(index)}
                 onMouseLeave={() => setActiveId(null)}
               />
