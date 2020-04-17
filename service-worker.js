@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "http://iamlocaljo.com/sanfrancisco-streetfood/precache-manifest.faf84e175c015daa1953f8b97b207baf.js"
+  "https://iamlocaljo.com/sanfrancisco-streetfood/precache-manifest.a2d2118006b2a262ce6a732c793961be.js"
 );
 
 self.addEventListener('message', (event) => {
@@ -33,7 +33,7 @@ workbox.core.clientsClaim();
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("http://iamlocaljo.com/sanfrancisco-streetfood/index.html"), {
+workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("https://iamlocaljo.com/sanfrancisco-streetfood/index.html"), {
   
   blacklist: [/^\/_/,/\/[^/?]+\.[^/]+$/],
 });
