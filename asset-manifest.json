@@ -1,17 +1,19 @@
 {
   "files": {
     "main.css": "http://iamlocaljo.com/sanfrancisco-streetfood/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "http://iamlocaljo.com/sanfrancisco-streetfood/static/js/main.d0692bb5.chunk.js",
-    "main.js.map": "http://iamlocaljo.com/sanfrancisco-streetfood/static/js/main.d0692bb5.chunk.js.map",
+    "main.js": "http://iamlocaljo.com/sanfrancisco-streetfood/static/js/main.84735c14.chunk.js",
+    "main.js.map": "http://iamlocaljo.com/sanfrancisco-streetfood/static/js/main.84735c14.chunk.js.map",
     "runtime-main.js": "http://iamlocaljo.com/sanfrancisco-streetfood/static/js/runtime-main.d82466ea.js",
     "runtime-main.js.map": "http://iamlocaljo.com/sanfrancisco-streetfood/static/js/runtime-main.d82466ea.js.map",
-    "static/js/2.f4c5395a.chunk.js": "http://iamlocaljo.com/sanfrancisco-streetfood/static/js/2.f4c5395a.chunk.js",
-    "static/js/2.f4c5395a.chunk.js.map": "http://iamlocaljo.com/sanfrancisco-streetfood/static/js/2.f4c5395a.chunk.js.map",
+    "static/css/2.75edc52f.chunk.css": "http://iamlocaljo.com/sanfrancisco-streetfood/static/css/2.75edc52f.chunk.css",
+    "static/js/2.b777f7b3.chunk.js": "http://iamlocaljo.com/sanfrancisco-streetfood/static/js/2.b777f7b3.chunk.js",
+    "static/js/2.b777f7b3.chunk.js.map": "http://iamlocaljo.com/sanfrancisco-streetfood/static/js/2.b777f7b3.chunk.js.map",
     "index.html": "http://iamlocaljo.com/sanfrancisco-streetfood/index.html",
-    "precache-manifest.5c6bfe6e928e3545064b8b07e4c7e3de.js": "http://iamlocaljo.com/sanfrancisco-streetfood/precache-manifest.5c6bfe6e928e3545064b8b07e4c7e3de.js",
+    "precache-manifest.faf84e175c015daa1953f8b97b207baf.js": "http://iamlocaljo.com/sanfrancisco-streetfood/precache-manifest.faf84e175c015daa1953f8b97b207baf.js",
     "service-worker.js": "http://iamlocaljo.com/sanfrancisco-streetfood/service-worker.js",
+    "static/css/2.75edc52f.chunk.css.map": "http://iamlocaljo.com/sanfrancisco-streetfood/static/css/2.75edc52f.chunk.css.map",
     "static/css/main.5ecd60fb.chunk.css.map": "http://iamlocaljo.com/sanfrancisco-streetfood/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.f4c5395a.chunk.js.LICENSE.txt": "http://iamlocaljo.com/sanfrancisco-streetfood/static/js/2.f4c5395a.chunk.js.LICENSE.txt",
+    "static/js/2.b777f7b3.chunk.js.LICENSE.txt": "http://iamlocaljo.com/sanfrancisco-streetfood/static/js/2.b777f7b3.chunk.js.LICENSE.txt",
     "static/media/food.233709b1.svg": "http://iamlocaljo.com/sanfrancisco-streetfood/static/media/food.233709b1.svg",
     "static/media/map.cf2c79cf.svg": "http://iamlocaljo.com/sanfrancisco-streetfood/static/media/map.cf2c79cf.svg",
     "static/media/pin.bf6159db.svg": "http://iamlocaljo.com/sanfrancisco-streetfood/static/media/pin.bf6159db.svg",
@@ -19,8 +21,9 @@
   },
   "entrypoints": [
     "static/js/runtime-main.d82466ea.js",
-    "static/js/2.f4c5395a.chunk.js",
+    "static/css/2.75edc52f.chunk.css",
+    "static/js/2.b777f7b3.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.d0692bb5.chunk.js"
+    "static/js/main.84735c14.chunk.js"
   ]
 }

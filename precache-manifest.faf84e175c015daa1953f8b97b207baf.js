@@ -1,23 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0fbf4581a4c0716f8c88208e24d77ca8",
+    "revision": "23aa0e77c9867e7fff663f2f3a429726",
     "url": "http://iamlocaljo.com/sanfrancisco-streetfood/index.html"
   },
   {
-    "revision": "1bf93d0491b31d1203a5",
+    "revision": "eaf906616bea79177236",
+    "url": "http://iamlocaljo.com/sanfrancisco-streetfood/static/css/2.75edc52f.chunk.css"
+  },
+  {
+    "revision": "1cb3537a666d5296dd49",
     "url": "http://iamlocaljo.com/sanfrancisco-streetfood/static/css/main.5ecd60fb.chunk.css"
   },
   {
-    "revision": "f34468e2742071b75a62",
-    "url": "http://iamlocaljo.com/sanfrancisco-streetfood/static/js/2.f4c5395a.chunk.js"
+    "revision": "eaf906616bea79177236",
+    "url": "http://iamlocaljo.com/sanfrancisco-streetfood/static/js/2.b777f7b3.chunk.js"
   },
   {
     "revision": "33ade7f87243ebea1c83e915f94afce3",
-    "url": "http://iamlocaljo.com/sanfrancisco-streetfood/static/js/2.f4c5395a.chunk.js.LICENSE.txt"
+    "url": "http://iamlocaljo.com/sanfrancisco-streetfood/static/js/2.b777f7b3.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1bf93d0491b31d1203a5",
-    "url": "http://iamlocaljo.com/sanfrancisco-streetfood/static/js/main.d0692bb5.chunk.js"
+    "revision": "1cb3537a666d5296dd49",
+    "url": "http://iamlocaljo.com/sanfrancisco-streetfood/static/js/main.84735c14.chunk.js"
   },
   {
     "revision": "83bb8ffb2d39fe47bbc0",

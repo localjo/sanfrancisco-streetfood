@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "http://iamlocaljo.com/sanfrancisco-streetfood/precache-manifest.5c6bfe6e928e3545064b8b07e4c7e3de.js"
+  "http://iamlocaljo.com/sanfrancisco-streetfood/precache-manifest.faf84e175c015daa1953f8b97b207baf.js"
 );
 
 self.addEventListener('message', (event) => {
