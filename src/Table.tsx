@@ -1,26 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ITruck } from './interfaces';
+import { FoodTag } from './ui';
 
 const StyledTable = styled.table`
-  margin-top: 85px;
-  background: rgba(50, 50, 50);
+  background: rgb(121, 207, 215);
   position: relative;
+  color: hsl(211.4, 37.5%, 12%);
   thead {
-    text-align: 'left';
+    text-align: left;
     position: sticky;
     top: 86px;
     left: 0;
     right: 0;
-    background: rgb(0, 0, 0);
+    color: white;
+    background: hsl(211.4, 37.5%, 12%);
   }
-`;
-const FoodTag = styled.span`
-  background: rgba(0, 0, 0, 0.3);
-  padding: 3px;
-  margin: 2px;
-  display: inline-block;
-  border-radius: 3px;
 `;
 
 function Table({ trucks }: { trucks: ITruck[] }) {
@@ -54,10 +49,12 @@ function Table({ trucks }: { trucks: ITruck[] }) {
               return (
                 <tr
                   key={id}
-                  style={{ background: i % 2 ? '' : 'rgba(255, 255,255, 0.1)' }}
+                  style={{ background: i % 2 ? '' : 'rgba(0, 0, 0, 0.1)' }}
                 >
                   <td>{id}</td>
-                  <td>{name}</td>
+                  <td>
+                    <b>{name}</b>
+                  </td>
                   <td>
                     {foodTypes.map((foodType, i) => (
                       <FoodTag key={foodType}>{foodType}</FoodTag>

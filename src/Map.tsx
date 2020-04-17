@@ -6,33 +6,26 @@ import MapGL, {
   WebMercatorViewport,
 } from 'react-map-gl';
 import styled from 'styled-components';
+import { FoodTag } from './ui';
 import { ITruck, ICoordsArray, IViewportSettings } from './interfaces';
 import { ReactComponent as PinIcon } from './icons/pin.svg';
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_PUBLIC_TOKEN as string;
 
 const Wrapper = styled.div`
-  margin: 0 auto;
-  max-width: 1200px;
+  overflow: hidden;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 85px);
   color: black;
 `;
 const ControlHolder = styled.div`
   position: absolute;
-  top: 85px;
+  top: 0;
   right: 0;
   padding: 10px;
 `;
 const PopupBody = styled.div`
-  max-width: 250px;
-`;
-const FoodTag = styled.span`
-  background: rgba(0, 0, 0, 0.3);
-  padding: 3px;
-  margin: 2px;
-  display: inline-block;
-  border-radius: 3px;
+  max-width: 300px;
 `;
 const useContainerSize = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -81,7 +74,7 @@ function Map({ trucks }: { trucks: ITruck[] }) {
   const padding = {
     top: isTall ? 0 : (size.height + 1) / 20,
     right: 0,
-    bottom: isTall ? 0 : (size.height + 1) / 2.5,
+    bottom: isTall ? 0 : (size.height + 1) / 5,
     left: 0,
   };
   const { longitude, latitude, zoom } = mercator.fitBounds(bounds, {
@@ -112,7 +105,7 @@ function Map({ trucks }: { trucks: ITruck[] }) {
         {...viewport}
         width="100%"
         height="100%"
-        mapStyle="mapbox://styles/mapbox/dark-v9"
+        mapStyle="mapbox://styles/localjo/ck93j8bdy06xi1iqu9nc4zf5o/draft"
         onViewportChange={(nextViewport) => {
           setViewport(nextViewport);
         }}
@@ -120,7 +113,7 @@ function Map({ trucks }: { trucks: ITruck[] }) {
       >
         {markers.map(({ id, longitude, latitude }, index) => {
           const isActive = index === activeId;
-          const fillColor = isActive ? 'white' : '#0A84FF';
+          const fillColor = isActive ? '#bd3f16' : '#900511';
           const iconSize = isActive ? 35 : 30;
           return (
             <Marker
@@ -153,20 +146,15 @@ function Map({ trucks }: { trucks: ITruck[] }) {
             anchor="top"
             longitude={activeTruck.longitude}
             latitude={activeTruck.latitude}
-            closeOnClick={false}
+            closeButton={false}
             onClose={() => setActiveId(null)}
           >
             <PopupBody>
-              <p>
-                <b>{activeTruck.name}</b>
-              </p>
-              <p>{activeTruck.vehicleType}</p>
+              <b>{activeTruck.name}</b>
               <p>{activeTruck.address}</p>
-              <p>
-                {activeTruck.foodTypes.map((foodType, i) => (
-                  <FoodTag key={foodType}>{foodType}</FoodTag>
-                ))}
-              </p>
+              {activeTruck.foodTypes.map((foodType, i) => (
+                <FoodTag key={foodType}>{foodType}</FoodTag>
+              ))}
             </PopupBody>
           </Popup>
         )}
