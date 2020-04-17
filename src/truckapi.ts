@@ -29,7 +29,11 @@ export const getTrucks = async function (): Promise<ITruck[]> {
           name: applicant,
           latitude,
           longitude,
-          address: locationdescription,
+          address: locationdescription
+            .toLowerCase()
+            .replace(/(^|\s)\S/g, function (t) {
+              return t.toUpperCase();
+            }),
           foodTypes: Array.from(
             new Set(
               fooditems
