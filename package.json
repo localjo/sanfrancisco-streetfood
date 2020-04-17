@@ -1,5 +1,6 @@
 {
-  "name": "sanfrancisco-foodtrucks",
+  "name": "sanfrancisco-streetfood",
+  "description": "Map of street food in San Francisco",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
